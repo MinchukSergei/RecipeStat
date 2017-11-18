@@ -1,0 +1,23 @@
+{
+  "name": "recipestat",
+  "version": "1.0.0",
+  "description": "Recipe statistics",
+  "main": "food2forkScraper.js",
+  "dependencies": {
+    "osmosis": "^1.1.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MinchukSergei/RecipeStat.git"
+  },
+  "author": "SergeyMinchuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MinchukSergei/RecipeStat/issues"
+  },
+  "homepage": "https://github.com/MinchukSergei/RecipeStat#readme"
+}
