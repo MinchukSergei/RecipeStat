@@ -4,32 +4,37 @@ var os = require('os');
 var readline = require('readline');
 var recipiesLinksFileName = 'recipiesLinks';
 
-function getIngredients(start, limit) {
+function getIngredients(limit) {
     osmosis
-        .get('https://food2fork.com/index/' + start)
+        .get('https://food2fork.com/index/4800')
+        .paginate('div.pager > a', limit)
         .find('div.img-polaroid')
         .set({
             'link': 'a.recipe-link@href',
+            'recipe': [
+                osmosis
+                .follow('a.recipe-link@href')
+                // .find('div.about-container')
+                .set({
+                    title: 'h1.recipe-title',
+                    rank: 'span.pull-center h4',
+                    ingredient: ['li[itemprop="ingredients"]']
+                })
+            ]
         })
-        .data(function (data) {
-            fs.appendFile(recipiesLinksFileName, data.link + os.EOL);
+        .data(function (recipe) {
+            var recipeJSON = JSON.stringify(recipe);
+            fs.appendFile(recipiesLinksFileName, recipeJSON + os.EOL);
         })
-        .paginate('div.pager + a@href', limit)
+        // 
         .done(function () {
             console.log('Done===');
-        });
+        })
+        .log(console.log)
+        .error(console.log)
+        .debug(console.log);
+    
 }
 
-// function extractIngredients() {
-//     var fileRL = readline.createInterface({
-//         input: fs.open(recipiesLinksFileName, 'r')
-//     });
-//     fileRL.on('line', function(line) {
-//         osmosis
-//         .get('https://food2fork.com' + line)
-//         .
-//     })
-// }
-
 //all 4854
-getIngredients(1, 4);
+getIngredients(50);
