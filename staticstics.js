@@ -5,7 +5,7 @@ var descendingRec = function(rec1, rec2) {
     return +rec2.recipe.rank - +rec1.recipe.rank;
 }
 
-var ascendingRec = function() {
+var ascendingRec = function(rec1, rec2) {
     return +rec1.recipe.rank - +rec2.recipe.rank;
 }
 
@@ -77,7 +77,7 @@ var getRankStability = function (ingredient) {
             for (rec of recipes) {
                 dispertion += Math.pow(+rec.recipe.rank - averageRank, 2);
             }
-            console.log('Dispertion of recipes with ingredient: ' + ingredient + ' = ' + dispertion / recipes.length);
+            console.log('Standard deviation of recipes with ingredient: ' + ingredient + ' = ' + Math.sqrt(dispertion / recipes.length));
         }
     )
 }

@@ -238,7 +238,7 @@ var getProbabilities = function (n) {
                         throw e;
                     }
                 }
-                console.log(count);
+                console.log('Number of all products in recipes: ' + count);
             },
             error => {
                 console.log('ERROR RECIPES HANDLING.');
