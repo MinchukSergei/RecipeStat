@@ -1,9 +1,9 @@
 var osmosis = require('osmosis');
 var fs = require('fs');
 var os = require('os');
-var readline = require('readline');
 var recipiesLinksFileName = 'recipiesLinks';
 
+//all 4854
 function getIngredients(limit) {
     osmosis
         .get('https://food2fork.com/index/4800')
@@ -33,8 +33,4 @@ function getIngredients(limit) {
         .log(console.log)
         .error(console.log)
         .debug(console.log);
-    
 }
-
-//all 4854
-getIngredients(50);

@@ -2,7 +2,7 @@
   "name": "recipestat",
   "version": "1.0.0",
   "description": "Recipe statistics",
-  "main": "food2forkScraper.js",
+  "main": "main.js",
   "dependencies": {
     "osmosis": "^1.1.4"
   },
